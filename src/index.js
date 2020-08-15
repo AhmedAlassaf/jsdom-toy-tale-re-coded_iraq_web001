@@ -9,12 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let submit=document.getElementsByClassName('submit')[0];
   let toyCollection= document.querySelector('#toy-collection');
 
-
-
 function drawToyCard(property){
-
-
-
   toyCollection.insertAdjacentHTML('beforeend',`<div class="card">
 <h2>${property.name}</h2>
 <img src=${property.image} class="toy-avatar" />
@@ -38,7 +33,6 @@ let configObj= {
   body: JSON.stringify(updatedLike)
 
 }
-
 fetch(`http://localhost:3000/toys/${property.id}`,configObj)
 .then(res => res.json())
 .then(returnedData =>{
@@ -51,8 +45,6 @@ drawToyCard(returnedData);
 
 
 }
-
-
   fetch('http://localhost:3000/toys')
   .then(resp => resp.json())
   .then(toys=> {
@@ -88,15 +80,12 @@ drawToyCard(returnedData);
           },
       body : JSON.stringify(dataToBeSent)
     }
-
     fetch('http://localhost:3000/toys',configObj)
     .then (response => response.json())
     .then (anotherToy => {
       console.log(anotherToy);
 
       drawToyCard(anotherToy);
-
     })
-
   });
 });
